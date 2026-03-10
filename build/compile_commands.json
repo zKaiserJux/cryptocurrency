@@ -1,0 +1,44 @@
+[
+{
+  "directory": "/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency/build",
+  "command": "/usr/bin/clang++ -I\"/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency\" -isystem /opt/homebrew/include -g -std=gnu++17 -arch arm64 -o CMakeFiles/BitcoinNode.dir/main.cpp.o -c \"/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency/main.cpp\"",
+  "file": "/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency/main.cpp",
+  "output": "/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency/build/CMakeFiles/BitcoinNode.dir/main.cpp.o"
+},
+{
+  "directory": "/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency/build",
+  "command": "/usr/bin/clang++ -I\"/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency\" -isystem /opt/homebrew/include -g -std=gnu++17 -arch arm64 -o CMakeFiles/BitcoinNode.dir/core/Block.cpp.o -c \"/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency/core/Block.cpp\"",
+  "file": "/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency/core/Block.cpp",
+  "output": "/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency/build/CMakeFiles/BitcoinNode.dir/core/Block.cpp.o"
+},
+{
+  "directory": "/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency/build",
+  "command": "/usr/bin/clang++ -I\"/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency\" -isystem /opt/homebrew/include -g -std=gnu++17 -arch arm64 -o CMakeFiles/BitcoinNode.dir/core/BlockHeader.cpp.o -c \"/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency/core/BlockHeader.cpp\"",
+  "file": "/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency/core/BlockHeader.cpp",
+  "output": "/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency/build/CMakeFiles/BitcoinNode.dir/core/BlockHeader.cpp.o"
+},
+{
+  "directory": "/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency/build",
+  "command": "/usr/bin/clang++ -I\"/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency\" -isystem /opt/homebrew/include -g -std=gnu++17 -arch arm64 -o CMakeFiles/BitcoinNode.dir/core/Transaction.cpp.o -c \"/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency/core/Transaction.cpp\"",
+  "file": "/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency/core/Transaction.cpp",
+  "output": "/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency/build/CMakeFiles/BitcoinNode.dir/core/Transaction.cpp.o"
+},
+{
+  "directory": "/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency/build",
+  "command": "/usr/bin/clang++ -I\"/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency\" -isystem /opt/homebrew/include -g -std=gnu++17 -arch arm64 -o CMakeFiles/BitcoinNode.dir/cryptography/SHA256.cpp.o -c \"/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency/cryptography/SHA256.cpp\"",
+  "file": "/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency/cryptography/SHA256.cpp",
+  "output": "/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency/build/CMakeFiles/BitcoinNode.dir/cryptography/SHA256.cpp.o"
+},
+{
+  "directory": "/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency/build",
+  "command": "/usr/bin/clang++ -I\"/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency\" -isystem /opt/homebrew/include -g -std=gnu++17 -arch arm64 -o CMakeFiles/BitcoinNode.dir/cryptography/rsa.cpp.o -c \"/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency/cryptography/rsa.cpp\"",
+  "file": "/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency/cryptography/rsa.cpp",
+  "output": "/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency/build/CMakeFiles/BitcoinNode.dir/cryptography/rsa.cpp.o"
+},
+{
+  "directory": "/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency/build",
+  "command": "/usr/bin/clang++ -I\"/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency\" -isystem /opt/homebrew/include -g -std=gnu++17 -arch arm64 -o CMakeFiles/BitcoinNode.dir/test/test.cpp.o -c \"/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency/test/test.cpp\"",
+  "file": "/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency/test/test.cpp",
+  "output": "/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency/build/CMakeFiles/BitcoinNode.dir/test/test.cpp.o"
+}
+]

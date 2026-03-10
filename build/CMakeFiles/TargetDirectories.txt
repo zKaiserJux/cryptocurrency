@@ -1,0 +1,3 @@
+/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency/build/CMakeFiles/BitcoinNode.dir
+/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency/build/CMakeFiles/edit_cache.dir
+/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency/build/CMakeFiles/rebuild_cache.dir

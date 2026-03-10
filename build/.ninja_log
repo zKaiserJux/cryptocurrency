@@ -1,0 +1,8 @@
+# ninja log v7
+4	37	1772813987881988700	CMakeFiles/BitcoinNode.dir/core/Transaction.cpp.o	79908f82f84d4ef4
+4	37	1772813987881592700	CMakeFiles/BitcoinNode.dir/core/Block.cpp.o	d1c6e88fd2037d21
+5	219	1772814975319686277	CMakeFiles/BitcoinNode.dir/main.cpp.o	2e72e1b60c186b8d
+5	265	1772815508454135775	CMakeFiles/BitcoinNode.dir/cryptography/SHA256.cpp.o	a77d4d3e388b4cac
+4	224	1772815508453870648	CMakeFiles/BitcoinNode.dir/core/BlockHeader.cpp.o	86fdaba8bcf921e0
+231	265	1772815546524710000	BitcoinNode	6e96bbf6332bd8e4
+4	231	1772815546297896008	CMakeFiles/BitcoinNode.dir/test/test.cpp.o	24f4f9012d0e54ee
