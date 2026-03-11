@@ -11,13 +11,13 @@ using Hash256 = std::array<std::uint8_t, 32>;
 // class that defines the header of each block
 class BlockHeader {
     public:
-        BlockHeader(std::uint32_t blockVersion, Hash256 prevBlockHash, Hash256 merkleRootHash, std::uint32_t time, std::uint32_t nonce) 
+        BlockHeader(const std::uint32_t& blockVersion, const Hash256& prevBlockHash, const Hash256& merkleRootHash, const std::uint32_t& time, const std::uint32_t& nonce)
         : m_version(blockVersion), m_prevBlockHash(prevBlockHash), m_merkleRoot(merkleRootHash), m_timestamp(time), m_nonce(nonce) {}
         ~BlockHeader() = default;
 
         // serialize header
-        std::vector<std::uint8_t> serialize() const;
-        std::optional<Hash256> hashBlockHeader() const;
+        [[nodiscard]] std::vector<std::uint8_t> serialize() const;
+        [[nodiscard]] std::optional<Hash256> hashBlockHeader() const;
     
     private:
         // m_version is 4 byte field -> version 2 of blocks

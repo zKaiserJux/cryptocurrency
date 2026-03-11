@@ -49,9 +49,7 @@ std::vector<std::uint8_t> BlockHeader::serialize() const {
 // create SHA256 of serialized block header
 std::optional<Hash256> BlockHeader::hashBlockHeader() const {
     Hash256 hashed{};
-    std::vector<std::uint8_t> unhashed = serialize();
-
-    if (!computeHash(unhashed, hashed)) {
+    if (const std::vector<std::uint8_t> unhashed = serialize(); !computeHash(unhashed, hashed)) {
         return std::nullopt;
     }
     return hashed;

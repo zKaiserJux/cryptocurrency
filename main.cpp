@@ -3,6 +3,7 @@
 #include "test/test.h"
 
 int main() {
-    testComputeHash();
+    // testComputeHash();
+    testKeyPair();
     return 0;
 }

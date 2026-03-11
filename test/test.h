@@ -2,3 +2,4 @@
 
 // test for compute hash
 bool testComputeHash();
+bool testKeyPair();

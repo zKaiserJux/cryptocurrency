@@ -16,6 +16,9 @@ add_executable(BitcoinNode
     cryptography/privkey.cpp
     cryptography/pubkey.cpp
     test/test.cpp
+        cryptography/pubkey.h
+        cryptography/keypair.cpp
+        cryptography/keypair.h
 )
 
 target_include_directories(BitcoinNode PRIVATE

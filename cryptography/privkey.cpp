@@ -1,5 +1,9 @@
 #include "privkey.h"
 
-CPrivKey CPrivKey::generatePrivKey() {
-    
+uint256& CPrivKey::getKeyData() {
+    return m_privKey;
+}
+
+int CPrivKey::size() const {
+    return m_privKey.size();
 }

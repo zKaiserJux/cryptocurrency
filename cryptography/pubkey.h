@@ -1,19 +1,23 @@
+#pragma once
 #include <vector>
-#include <cstdint>
 
 #ifndef PUBKEY_H
 #define PUBKEY_H
 
+using uint256 = std::array<unsigned char, 32>;
+
 class CPubKey {
     public:
         CPubKey() = default;
-        explicit CPubKey(std::vector<std::uint8_t> bytes);
+        // TODO: clear key data via destructor
 
-        const std::vector<std::uint8_t>& bytes() const { return m_bytes; }
-        bool empty() const { return m_bytes.empty(); }
+        [[nodiscard]] uint256& getKeyData();
+        [[nodiscard]] bool empty() const { return m_bytes.empty(); }
+        [[nodiscard]] bool verify() const;
+        int size() const;
 
     private:
-        std::vector<std::uint8_t> m_bytes;
+        uint256 m_bytes = {0};
 };
 
 #endif
