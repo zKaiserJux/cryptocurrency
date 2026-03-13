@@ -16,7 +16,7 @@ template <typename T>
 using OpenSSLPointer = std::unique_ptr<T, OpenSSLFree>;
 
 // function to compute the SHA-256 hash algorithm
-bool computeHash(const std::vector<std::uint8_t>&  unhashedInput, Hash256& hashedOut) {
+bool computeHash(std::span<const std::uint8_t>  unhashedInput, uint256& hashedOut) {
     const OpenSSLPointer<EVP_MD_CTX> context(EVP_MD_CTX_new());
 
     if (context.get() == nullptr) {
@@ -56,4 +56,22 @@ void PrintHex(const char* name, const std::array<std::uint8_t, 32>& input)
                   << static_cast<unsigned>(b);
     }
     std::cout << std::dec << '\n';
+}
+
+// function to create the double SHA256 used for hashing transactions
+bool computeDoubleHash(const std::vector<std::uint8_t> &unhashedInput, uint256 &hashedOut) {
+    // we first need to hash the serialized input once
+    uint256 hashedOnce;
+    if (!computeHash(unhashedInput, hashedOnce)) {
+        return false;
+    }
+    /* if the first hashing has been sucessfull we can continue
+     * to convert the fixed size array into a std::vector in order to make use of
+     * the computeHash function again
+     */
+    // const std::vector<std::uint8_t> byteStreamHash(hashedOnce.begin(), hashedOnce.end());
+    if (!computeHash(hashedOnce, hashedOut)) {
+        return false;
+    }
+    return true;
 }

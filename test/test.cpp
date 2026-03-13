@@ -5,12 +5,25 @@
 #include <vector>
 #include <iostream>
 
+// test function for SHA256
 bool testComputeHash() {
-    std::vector<std::uint8_t> myvec = {3, 6, 8};
+    const std::vector<std::uint8_t> testVector = {3, 6, 8};
     std::array<std::uint8_t, 32> hashed{};
-    if (computeHash(myvec, hashed)) {
+    if (computeHash(testVector, hashed)) {
         std::cout << hashed.size() << std::endl;
         PrintHex("Hash", hashed);
+        return true;
+    }
+    return false;
+}
+
+// test function for double SHA256
+bool testDoubleHash() {
+    const std::vector<std::uint8_t> testVector = {3, 6, 8};
+    std::array<std::uint8_t, 32> hashedTwice{};
+    if (computeDoubleHash(testVector, hashedTwice)) {
+        std::cout << hashedTwice.size() << std::endl;
+        PrintHex("Double Hash", hashedTwice);
         return true;
     }
     return false;

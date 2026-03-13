@@ -4,6 +4,7 @@
 
 int main() {
     // testComputeHash();
-    testKeyPair();
+    testDoubleHash();
+    // testKeyPair();
     return 0;
 }

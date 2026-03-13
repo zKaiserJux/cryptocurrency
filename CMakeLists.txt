@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.16)
 
 project(BitcoinNode LANGUAGES C CXX)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(OpenSSL REQUIRED)
@@ -19,6 +19,7 @@ add_executable(BitcoinNode
         cryptography/pubkey.h
         cryptography/keypair.cpp
         cryptography/keypair.h
+        core/Transaction.h
 )
 
 target_include_directories(BitcoinNode PRIVATE

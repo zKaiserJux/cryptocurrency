@@ -1,13 +1,14 @@
 #pragma once
 
 #include <array>
-#include <cstdint>
+#include <span>
 #include <vector>
-#include <string>
 
-using Hash256 = std::array<std::uint8_t, 32>;
+using uint256 = std::array<std::uint8_t, 32>;
 
 // compute SHA256 hash
-bool computeHash(const std::vector<std::uint8_t>& unhashedInput, Hash256& hashedOut);
+bool computeHash(std::span<const std::uint8_t> unhashedInput, uint256& hashedOut);
 // hex representation
-void PrintHex(const char* name, const std::array<std::uint8_t, 32>& input);
+void PrintHex(const char* name, const uint256& input);
+// compute double SHA256
+bool computeDoubleHash(const std::vector<std::uint8_t>& unhashedInput, uint256& hashedOut);
