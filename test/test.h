@@ -1,6 +1,6 @@
 #pragma once
 
-// test for compute hash
+// declaring all the test functions for different modules
 bool testComputeHash();
-bool testKeyPair();
 bool testDoubleHash();
+bool testKeyPair();

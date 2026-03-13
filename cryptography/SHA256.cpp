@@ -46,16 +46,13 @@ bool computeHash(std::span<const std::uint8_t>  unhashedInput, uint256& hashedOu
     return true;
 }
 
-void PrintHex(const char* name, const std::array<std::uint8_t, 32>& input)
-{
-    std::cout << name << " (" << input.size() << " bytes): ";
-    for (const std::uint8_t b : input) {
-        std::cout << std::hex
-                  << std::setw(2)
-                  << std::setfill('0')
-                  << static_cast<unsigned>(b);
+// function to represent byte streams as hex
+void PrintHex(const char* name, std::span<const std::uint8_t> input) {
+    std::cout << name << "(" << input.size() << " bytes): ";
+    for (const std::uint8_t byte : input) {
+        std::cout << std::hex << std::setw(2) << std::setfill('0') << static_cast<unsigned>(byte);
     }
-    std::cout << std::dec << '\n';
+    std::cout << std::dec << std::endl;
 }
 
 // function to create the double SHA256 used for hashing transactions
