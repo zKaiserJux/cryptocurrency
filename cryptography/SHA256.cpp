@@ -48,7 +48,7 @@ bool computeHash(std::span<const std::uint8_t>  unhashedInput, uint256& hashedOu
 
 // function to represent byte streams as hex
 void PrintHex(const char* name, std::span<const std::uint8_t> input) {
-    std::cout << name << "(" << input.size() << " bytes): ";
+    std::cout << name << ": ";
     for (const std::uint8_t byte : input) {
         std::cout << std::hex << std::setw(2) << std::setfill('0') << static_cast<unsigned>(byte);
     }

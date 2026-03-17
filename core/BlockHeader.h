@@ -1,3 +1,4 @@
+#pragma once
 #include <cstdint>
 #include <array>
 #include <vector>
@@ -17,11 +18,14 @@ class BlockHeader {
 
         // serialize header
         [[nodiscard]] std::vector<std::uint8_t> serialize() const;
+        [[nodiscard]] static BlockHeader deserialize(std::vector<std::uint8_t>& serializedBlockHeader);
         [[nodiscard]] std::optional<Hash256> hashBlockHeader() const;
+
+        void printBlockHeader() const;
     
     private:
         // m_version is 4 byte field -> version 2 of blocks
-        std::uint32_t m_version = 2;
+        const std::uint32_t m_version = 2;
         // both are single or double SHA256 hashes -> 32 bytes
         Hash256 m_prevBlockHash{};
         Hash256 m_merkleRoot{};

@@ -18,7 +18,7 @@ template <typename T> void addElement(T& t, std::vector<std::uint8_t>& out) {
 // function to deserialize a field with the given datatype T
 template <typename T> T deserializeField(const std::vector<std::uint8_t>& data, std::size_t& offset) {
     static_assert(std::is_integral_v<T>, "Datatype must be integral");
-    if (sizeof(T) + offset > data.size()) {
+    if ((sizeof(T) + offset) > data.size()) {
         throw std::runtime_error("unexpected data size");
     }
     T t{};
@@ -30,7 +30,7 @@ template <typename T> T deserializeField(const std::vector<std::uint8_t>& data, 
 // function to serialize inputs of transactions
 std::vector<std::uint8_t> TxInput::serialize() const {
     std::vector<std::uint8_t> serializedInputTx{};
-    // we dont need a size field for the hash as it is const with byte length of 32
+    // we do not need a size field for the hash as it is const with byte length of 32
     for (const auto& bytes : previousTxHash) {
         addElement(bytes, serializedInputTx);
     }

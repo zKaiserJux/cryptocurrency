@@ -20,6 +20,7 @@ add_executable(BitcoinNode
         cryptography/keypair.cpp
         cryptography/keypair.h
         core/Transaction.h
+        core/Block.h
 )
 
 target_include_directories(BitcoinNode PRIVATE
