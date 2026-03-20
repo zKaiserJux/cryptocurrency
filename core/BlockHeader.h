@@ -16,6 +16,9 @@ class BlockHeader {
         : m_version(blockVersion), m_prevBlockHash(prevBlockHash), m_merkleRoot(merkleRootHash), m_timestamp(time), m_nonce(nonce) {}
         ~BlockHeader() = default;
 
+        // needed for later deserialization inside the block class
+        static constexpr std::size_t BLOCK_HEADER_SIZE = 76;
+
         // serialize header
         [[nodiscard]] std::vector<std::uint8_t> serialize() const;
         [[nodiscard]] static BlockHeader deserialize(std::vector<std::uint8_t>& serializedBlockHeader);
@@ -31,7 +34,7 @@ class BlockHeader {
         Hash256 m_merkleRoot{};
         // m_timestamp and m_nonce are both 4 byte fields
         std::uint32_t m_timestamp;
-        std::uint32_t m_nonce;     
+        std::uint32_t m_nonce;
 };
 
 #endif

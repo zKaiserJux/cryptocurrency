@@ -36,7 +36,7 @@ std::vector<std::uint8_t> TxInput::serialize() const {
     }
     addElement(outputIndex, serializedInputTx);
     // we need to add field for unlockingData size as it can vary
-    std::size_t size = unlockingData.size();
+    std::uint32_t size = unlockingData.size();
     addElement(size, serializedInputTx);
     for (const auto& bytes : unlockingData) {
         addElement(bytes, serializedInputTx);
@@ -69,7 +69,7 @@ std::vector<std::uint8_t> TxOutput::serialize() const {
     std::vector<std::uint8_t> serializedOutput{};
     addElement(amount, serializedOutput);
     // we need the size of the std::vector as it varies in size depending on the containing elements
-    std::size_t size = unlockingData.size();
+    std::uint32_t size = unlockingData.size();
     addElement(size, serializedOutput);
     for (const auto& bytes : unlockingData) {
         addElement(bytes, serializedOutput);
@@ -80,7 +80,7 @@ std::vector<std::uint8_t> TxOutput::serialize() const {
 TxOutput TxOutput::deserialize(const std::vector<std::uint8_t>& serializedOutput, std::size_t& offset) {
     TxOutput txOutput{};
     txOutput.amount = deserializeField<std::uint64_t>(serializedOutput, offset);
-    const auto size = deserializeField<std::size_t>(serializedOutput, offset);
+    const auto size = deserializeField<std::uint32_t>(serializedOutput, offset);
     txOutput.unlockingData = std::vector<std::uint8_t>(serializedOutput.data() + offset, serializedOutput.data() + offset + size);
     return txOutput;
 }
@@ -126,7 +126,20 @@ const std::vector<std::uint8_t> CTransaction::serialize() const {
         serializedTx.insert(serializedTx.end(), bytes.begin(), bytes.end());
     }
 
-    return serializedTx;
+    /* as we do not know the size of the total transaction to the very end
+     * we need to add it after we serialized alle the input and output transactions
+     * and put it in front of the serialized byte stream for the transaction
+     * in order to achieve that, we create a new bytestream and reserve the total size of the transaction
+     */
+    std::vector<std::uint8_t> outputSerializedTx;
+    outputSerializedTx.reserve(sizeof(std::uint32_t) + serializedTx.size());
+    const auto sizeTx = static_cast<std::uint32_t>(serializedTx.size());
+
+    for (std::uint32_t i = sizeof(sizeTx) - 1; i > 0; --i) {
+        outputSerializedTx.push_back(static_cast<std::uint8_t>(sizeTx >> (i * 8)) & 0xFF);
+    }
+    outputSerializedTx.insert(outputSerializedTx.end(), serializedTx.begin(), serializedTx.end());
+    return outputSerializedTx;
 }
 
 // function to deserialize a transaction

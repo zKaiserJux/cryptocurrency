@@ -52,7 +52,7 @@ build cmake_object_order_depends_target_BitcoinNode: phony || .
 build CMakeFiles/BitcoinNode.dir/main.cpp.o: CXX_COMPILER__BitcoinNode_unscanned_Debug /Users/juliuseitz/Documents/Dokumente –$ MacBook$ Pro$ von$ Julius/Projekte/cryptocurrency/main.cpp || cmake_object_order_depends_target_BitcoinNode
   CONFIG = Debug
   DEP_FILE = CMakeFiles/BitcoinNode.dir/main.cpp.o.d
-  FLAGS = -g -std=gnu++17 -arch arm64
+  FLAGS = -g -std=gnu++20 -arch arm64
   INCLUDES = -I"/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency" -isystem /opt/homebrew/include
   OBJECT_DIR = CMakeFiles/BitcoinNode.dir
   OBJECT_FILE_DIR = CMakeFiles/BitcoinNode.dir
@@ -61,7 +61,7 @@ build CMakeFiles/BitcoinNode.dir/main.cpp.o: CXX_COMPILER__BitcoinNode_unscanned
 build CMakeFiles/BitcoinNode.dir/core/Block.cpp.o: CXX_COMPILER__BitcoinNode_unscanned_Debug /Users/juliuseitz/Documents/Dokumente –$ MacBook$ Pro$ von$ Julius/Projekte/cryptocurrency/core/Block.cpp || cmake_object_order_depends_target_BitcoinNode
   CONFIG = Debug
   DEP_FILE = CMakeFiles/BitcoinNode.dir/core/Block.cpp.o.d
-  FLAGS = -g -std=gnu++17 -arch arm64
+  FLAGS = -g -std=gnu++20 -arch arm64
   INCLUDES = -I"/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency" -isystem /opt/homebrew/include
   OBJECT_DIR = CMakeFiles/BitcoinNode.dir
   OBJECT_FILE_DIR = CMakeFiles/BitcoinNode.dir/core
@@ -70,7 +70,7 @@ build CMakeFiles/BitcoinNode.dir/core/Block.cpp.o: CXX_COMPILER__BitcoinNode_uns
 build CMakeFiles/BitcoinNode.dir/core/BlockHeader.cpp.o: CXX_COMPILER__BitcoinNode_unscanned_Debug /Users/juliuseitz/Documents/Dokumente –$ MacBook$ Pro$ von$ Julius/Projekte/cryptocurrency/core/BlockHeader.cpp || cmake_object_order_depends_target_BitcoinNode
   CONFIG = Debug
   DEP_FILE = CMakeFiles/BitcoinNode.dir/core/BlockHeader.cpp.o.d
-  FLAGS = -g -std=gnu++17 -arch arm64
+  FLAGS = -g -std=gnu++20 -arch arm64
   INCLUDES = -I"/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency" -isystem /opt/homebrew/include
   OBJECT_DIR = CMakeFiles/BitcoinNode.dir
   OBJECT_FILE_DIR = CMakeFiles/BitcoinNode.dir/core
@@ -79,7 +79,7 @@ build CMakeFiles/BitcoinNode.dir/core/BlockHeader.cpp.o: CXX_COMPILER__BitcoinNo
 build CMakeFiles/BitcoinNode.dir/core/Transaction.cpp.o: CXX_COMPILER__BitcoinNode_unscanned_Debug /Users/juliuseitz/Documents/Dokumente –$ MacBook$ Pro$ von$ Julius/Projekte/cryptocurrency/core/Transaction.cpp || cmake_object_order_depends_target_BitcoinNode
   CONFIG = Debug
   DEP_FILE = CMakeFiles/BitcoinNode.dir/core/Transaction.cpp.o.d
-  FLAGS = -g -std=gnu++17 -arch arm64
+  FLAGS = -g -std=gnu++20 -arch arm64
   INCLUDES = -I"/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency" -isystem /opt/homebrew/include
   OBJECT_DIR = CMakeFiles/BitcoinNode.dir
   OBJECT_FILE_DIR = CMakeFiles/BitcoinNode.dir/core
@@ -88,16 +88,25 @@ build CMakeFiles/BitcoinNode.dir/core/Transaction.cpp.o: CXX_COMPILER__BitcoinNo
 build CMakeFiles/BitcoinNode.dir/cryptography/SHA256.cpp.o: CXX_COMPILER__BitcoinNode_unscanned_Debug /Users/juliuseitz/Documents/Dokumente –$ MacBook$ Pro$ von$ Julius/Projekte/cryptocurrency/cryptography/SHA256.cpp || cmake_object_order_depends_target_BitcoinNode
   CONFIG = Debug
   DEP_FILE = CMakeFiles/BitcoinNode.dir/cryptography/SHA256.cpp.o.d
-  FLAGS = -g -std=gnu++17 -arch arm64
+  FLAGS = -g -std=gnu++20 -arch arm64
   INCLUDES = -I"/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency" -isystem /opt/homebrew/include
   OBJECT_DIR = CMakeFiles/BitcoinNode.dir
   OBJECT_FILE_DIR = CMakeFiles/BitcoinNode.dir/cryptography
   TARGET_SUPPORT_DIR = CMakeFiles/BitcoinNode.dir
 
-build CMakeFiles/BitcoinNode.dir/cryptography/rsa.cpp.o: CXX_COMPILER__BitcoinNode_unscanned_Debug /Users/juliuseitz/Documents/Dokumente –$ MacBook$ Pro$ von$ Julius/Projekte/cryptocurrency/cryptography/rsa.cpp || cmake_object_order_depends_target_BitcoinNode
+build CMakeFiles/BitcoinNode.dir/cryptography/privkey.cpp.o: CXX_COMPILER__BitcoinNode_unscanned_Debug /Users/juliuseitz/Documents/Dokumente –$ MacBook$ Pro$ von$ Julius/Projekte/cryptocurrency/cryptography/privkey.cpp || cmake_object_order_depends_target_BitcoinNode
   CONFIG = Debug
-  DEP_FILE = CMakeFiles/BitcoinNode.dir/cryptography/rsa.cpp.o.d
-  FLAGS = -g -std=gnu++17 -arch arm64
+  DEP_FILE = CMakeFiles/BitcoinNode.dir/cryptography/privkey.cpp.o.d
+  FLAGS = -g -std=gnu++20 -arch arm64
+  INCLUDES = -I"/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency" -isystem /opt/homebrew/include
+  OBJECT_DIR = CMakeFiles/BitcoinNode.dir
+  OBJECT_FILE_DIR = CMakeFiles/BitcoinNode.dir/cryptography
+  TARGET_SUPPORT_DIR = CMakeFiles/BitcoinNode.dir
+
+build CMakeFiles/BitcoinNode.dir/cryptography/pubkey.cpp.o: CXX_COMPILER__BitcoinNode_unscanned_Debug /Users/juliuseitz/Documents/Dokumente –$ MacBook$ Pro$ von$ Julius/Projekte/cryptocurrency/cryptography/pubkey.cpp || cmake_object_order_depends_target_BitcoinNode
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/BitcoinNode.dir/cryptography/pubkey.cpp.o.d
+  FLAGS = -g -std=gnu++20 -arch arm64
   INCLUDES = -I"/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency" -isystem /opt/homebrew/include
   OBJECT_DIR = CMakeFiles/BitcoinNode.dir
   OBJECT_FILE_DIR = CMakeFiles/BitcoinNode.dir/cryptography
@@ -106,10 +115,19 @@ build CMakeFiles/BitcoinNode.dir/cryptography/rsa.cpp.o: CXX_COMPILER__BitcoinNo
 build CMakeFiles/BitcoinNode.dir/test/test.cpp.o: CXX_COMPILER__BitcoinNode_unscanned_Debug /Users/juliuseitz/Documents/Dokumente –$ MacBook$ Pro$ von$ Julius/Projekte/cryptocurrency/test/test.cpp || cmake_object_order_depends_target_BitcoinNode
   CONFIG = Debug
   DEP_FILE = CMakeFiles/BitcoinNode.dir/test/test.cpp.o.d
-  FLAGS = -g -std=gnu++17 -arch arm64
+  FLAGS = -g -std=gnu++20 -arch arm64
   INCLUDES = -I"/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency" -isystem /opt/homebrew/include
   OBJECT_DIR = CMakeFiles/BitcoinNode.dir
   OBJECT_FILE_DIR = CMakeFiles/BitcoinNode.dir/test
+  TARGET_SUPPORT_DIR = CMakeFiles/BitcoinNode.dir
+
+build CMakeFiles/BitcoinNode.dir/cryptography/keypair.cpp.o: CXX_COMPILER__BitcoinNode_unscanned_Debug /Users/juliuseitz/Documents/Dokumente –$ MacBook$ Pro$ von$ Julius/Projekte/cryptocurrency/cryptography/keypair.cpp || cmake_object_order_depends_target_BitcoinNode
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles/BitcoinNode.dir/cryptography/keypair.cpp.o.d
+  FLAGS = -g -std=gnu++20 -arch arm64
+  INCLUDES = -I"/Users/juliuseitz/Documents/Dokumente – MacBook Pro von Julius/Projekte/cryptocurrency" -isystem /opt/homebrew/include
+  OBJECT_DIR = CMakeFiles/BitcoinNode.dir
+  OBJECT_FILE_DIR = CMakeFiles/BitcoinNode.dir/cryptography
   TARGET_SUPPORT_DIR = CMakeFiles/BitcoinNode.dir
 
 
@@ -120,7 +138,7 @@ build CMakeFiles/BitcoinNode.dir/test/test.cpp.o: CXX_COMPILER__BitcoinNode_unsc
 #############################################
 # Link the executable BitcoinNode
 
-build BitcoinNode: CXX_EXECUTABLE_LINKER__BitcoinNode_Debug CMakeFiles/BitcoinNode.dir/main.cpp.o CMakeFiles/BitcoinNode.dir/core/Block.cpp.o CMakeFiles/BitcoinNode.dir/core/BlockHeader.cpp.o CMakeFiles/BitcoinNode.dir/core/Transaction.cpp.o CMakeFiles/BitcoinNode.dir/cryptography/SHA256.cpp.o CMakeFiles/BitcoinNode.dir/cryptography/rsa.cpp.o CMakeFiles/BitcoinNode.dir/test/test.cpp.o | /opt/homebrew/lib/libcrypto.dylib
+build BitcoinNode: CXX_EXECUTABLE_LINKER__BitcoinNode_Debug CMakeFiles/BitcoinNode.dir/main.cpp.o CMakeFiles/BitcoinNode.dir/core/Block.cpp.o CMakeFiles/BitcoinNode.dir/core/BlockHeader.cpp.o CMakeFiles/BitcoinNode.dir/core/Transaction.cpp.o CMakeFiles/BitcoinNode.dir/cryptography/SHA256.cpp.o CMakeFiles/BitcoinNode.dir/cryptography/privkey.cpp.o CMakeFiles/BitcoinNode.dir/cryptography/pubkey.cpp.o CMakeFiles/BitcoinNode.dir/test/test.cpp.o CMakeFiles/BitcoinNode.dir/cryptography/keypair.cpp.o | /opt/homebrew/lib/libcrypto.dylib
   CONFIG = Debug
   FLAGS = -g -arch arm64
   LINK_FLAGS = -Wl,-search_paths_first -Wl,-headerpad_max_install_names
