@@ -1,4 +1,5 @@
 #include "Block.h"
+#include "cryptography/SHA256.h"
 
 template <typename T> T deserializeField(const std::vector<std::uint8_t>& data, std::uint32_t& offset) {
     static_assert(std::is_integral_v<T>, "Datatype must be integral");
@@ -53,4 +54,18 @@ Block Block::deserializeBlock(const std::vector<std::uint8_t>& serializedBlock) 
     }
     Block block(header, transactions);
     return block;
+}
+
+// updates the merkle root inside the block header class
+void Block::updateMerkleRoot(const std::array<std::uint8_t, 32> &merkleRoot) {
+    m_header.setMerkleRoot(merkleRoot);
+}
+
+// calculates the block hash of the current block
+const std::array<std::uint8_t, 32> Block::calculateBlockHash(std::vector<std::uint8_t>& serializedBlock) {
+    std::array<std::uint8_t, 32> blockHash{};
+    if (!computeHash(serializedBlock, blockHash)) {
+        throw std::runtime_error("unexpected block hash");
+    }
+    return blockHash;
 }

@@ -15,11 +15,11 @@ class Block {
     [[nodiscard]] std::vector<std::uint8_t> serializeBlock() const;
     [[nodiscard]] static Block deserializeBlock(const std::vector<std::uint8_t>& serializedBlock);
     [[nodiscard]] std::array<std::uint8_t, 32> calculateMerkleRoot() const;
-    [[nodiscard]] std::array<std::uint8_t, 32> calculateBlockHash() const;
+    // update the merkle root inside the block header class after calculation
+    void updateMerkleRoot(const std::array<std::uint8_t, 32>& merkleRoot);
+    [[nodiscard]] static const std::array<std::uint8_t, 32> calculateBlockHash(std::vector<std::uint8_t>& serializedBlock);
     void printBlock() const;
-    void setMerkleRoot(const std::array<std::uint8_t, 32>& root);
     void setBlockID();
-    std::uint32_t getBlock
 
     private:
     BlockHeader m_header;

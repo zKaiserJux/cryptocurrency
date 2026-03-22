@@ -16,7 +16,7 @@ template <typename T>
 using OpenSSLPointer = std::unique_ptr<T, OpenSSLFree>;
 
 // function to compute the SHA-256 hash algorithm
-bool computeHash(std::span<const std::uint8_t>  unhashedInput, uint256& hashedOut) {
+bool computeHash(const std::span<const std::uint8_t>& unhashedInput, uint256& hashedOut) {
     const OpenSSLPointer<EVP_MD_CTX> context(EVP_MD_CTX_new());
 
     if (context.get() == nullptr) {

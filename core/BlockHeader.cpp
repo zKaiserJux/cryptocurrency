@@ -84,6 +84,11 @@ std::optional<Hash256> BlockHeader::hashBlockHeader() const {
     return hashed;
 }
 
+// function to set the merkle root after it has been calculated inside the block class
+void BlockHeader::setMerkleRoot(const Hash256& merkleRoot) {
+    m_merkleRoot = merkleRoot;
+}
+
 // print deserialized block header
 void BlockHeader::printBlockHeader() const {
     std::cout << "{ " << std::endl;

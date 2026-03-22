@@ -24,6 +24,9 @@ class BlockHeader {
         [[nodiscard]] static BlockHeader deserialize(std::vector<std::uint8_t>& serializedBlockHeader);
         [[nodiscard]] std::optional<Hash256> hashBlockHeader() const;
 
+        // sets the merkle root inside the block header after it has been calculated inside the block class
+        void setMerkleRoot(const Hash256& merkleRoot);
+
         void printBlockHeader() const;
     
     private:
