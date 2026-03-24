@@ -12,12 +12,10 @@ template <typename T> T deserializeField(const std::vector<std::uint8_t>& data, 
     return t;
 }
 
-
 // function to add transactions to the block body
 void Block::addTx(const CTransaction& tx) {
     m_transactions.push_back(tx);
 }
-
 
 // serialized block header in two stages: 1. serialize block header and 2. serialize all the block transactions
 std::vector<std::uint8_t> Block::serializeBlock() const {
@@ -79,8 +77,8 @@ std::array<std::uint8_t, 32> Block::calculateMerkleRoot() const {
     // we now have all the hashed transactions inside hashedTransactions
     // algorithm terminates when there is only the merkle root hash inside hashedTransactions
     while (hashedTransactions.size() > 1) {
-        std::vector<std::array<std::uint8_t, 32>> temp{};
-        temp.reserve(hashedTransactions.size() / 2);
+        std::vector<std::array<std::uint8_t, 32>> leafHashes{};
+        leafHashes.reserve(hashedTransactions.size() / 2);
         // if the size of transactions at any stage of the tree is odd, we just duplicate the last element
         if (hashedTransactions.size() % 2 != 0) {
             hashedTransactions.push_back(hashedTransactions.back());
@@ -89,9 +87,9 @@ std::array<std::uint8_t, 32> Block::calculateMerkleRoot() const {
             std::array<std::uint8_t, 64> concatTx{};
             std::ranges::copy(hashedTransactions[i], concatTx.begin());
             std::ranges::copy(hashedTransactions[i + 1], concatTx.begin() + 32);
-            temp.push_back(computeHash(concatTx));
+            leafHashes.push_back(computeHash(concatTx));
         }
-        hashedTransactions = temp;
+        hashedTransactions = std::move(leafHashes);
     }
     return hashedTransactions[0];
 }

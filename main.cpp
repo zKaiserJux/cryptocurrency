@@ -17,6 +17,8 @@ int main() {
     // testComputeHash();
     // testDoubleHash();
     // testKeyPair();
-    checkNativeEndianness();
+    // checkNativeEndianness();
+    // testPrintTransaction();
+    testTxSerialization();
     return 0;
 }

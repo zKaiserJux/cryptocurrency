@@ -40,7 +40,7 @@ class CTransaction {
     ~CTransaction() = default;
     [[nodiscard]] const std::vector<std::uint8_t> serialize() const;
     [[nodiscard]] static CTransaction deserialize(const std::vector<uint8_t> &serializedTx);
-    [[nodiscard]] uint256 hashTransaction(const std::vector<std::uint8_t>& serializedTx);
+    [[nodiscard]] static uint256 hashTransaction(const std::vector<std::uint8_t>& serializedTx);
     void printTransaction() const;
 
     private:

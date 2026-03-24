@@ -11,4 +11,4 @@ uint256 computeHash(const std::span<const std::uint8_t>& unhashedInput);
 // hex representation
 void PrintHex(const char* name, std::span<const std::uint8_t> input);
 // compute double SHA256
-uint256 computeDoubleHash(const std::vector<std::uint8_t>& unhashedInput);
+uint256 computeDoubleHash(const std::span<const std::uint8_t>& unhashedInput);

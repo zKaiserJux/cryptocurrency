@@ -10,7 +10,7 @@ template <typename T> void addElement(T& t, std::vector<std::uint8_t>& out) {
     // function only works with integral datatypes
     static_assert(std::is_integral_v<T>, "Datatype must be integral");
     const std::size_t size = sizeof(T);
-    for (std::size_t i = size - 1; i > 0; --i) {
+    for (std::int32_t i = size - 1; i >= 0; --i) {
         out.push_back(static_cast<std::uint8_t>(t >> (i * 8)) & 0xFF);
     }
 };
@@ -135,7 +135,7 @@ const std::vector<std::uint8_t> CTransaction::serialize() const {
     outputSerializedTx.reserve(sizeof(std::uint32_t) + serializedTx.size());
     const auto sizeTx = static_cast<std::uint32_t>(serializedTx.size());
 
-    for (std::uint32_t i = sizeof(sizeTx) - 1; i > 0; --i) {
+    for (std::int32_t i = sizeof(sizeTx) - 1; i >= 0; --i) {
         outputSerializedTx.push_back(static_cast<std::uint8_t>(sizeTx >> (i * 8)) & 0xFF);
     }
     outputSerializedTx.insert(outputSerializedTx.end(), serializedTx.begin(), serializedTx.end());
@@ -174,9 +174,11 @@ void CTransaction::printTransaction() const {
     std::cout << "{" << std::endl;
     std::cout << "  version: " << m_version <<  std::endl;
     std::cout << "  nLockTime: " << m_nLockTime << std::endl;
+    std::cout << "  inputs: " << m_txInput.size() << std::endl;
     for (const auto& txInput : m_txInput) {
         txInput.printTxInput();
     }
+    std::cout << "  outputs: " << m_txOutput.size() << std::endl;
     for (const auto& txOutput : m_txOutput) {
         txOutput.printTxOutput();
     }

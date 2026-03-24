@@ -36,7 +36,7 @@ template <typename T> T deserializeField(std::vector<std::uint8_t>& serializedBl
         throw std::runtime_error("data size is too large");
     }
     T t{};
-    std::memcpy(&t, serializedBlockHeader.data() ++ offset, sizeof(T));
+    std::memcpy(&t, serializedBlockHeader.data() + offset, sizeof(T));
     offset += sizeof(T);
     return t;
 }
