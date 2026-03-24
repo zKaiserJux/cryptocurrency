@@ -17,9 +17,10 @@ class Block {
     [[nodiscard]] std::array<std::uint8_t, 32> calculateMerkleRoot() const;
     // update the merkle root inside the block header class after calculation
     void updateMerkleRoot(const std::array<std::uint8_t, 32>& merkleRoot);
-    [[nodiscard]] static const std::array<std::uint8_t, 32> calculateBlockHash(std::vector<std::uint8_t>& serializedBlock);
+    [[nodiscard]] static std::array<std::uint8_t, 32> calculateBlockHash(std::vector<std::uint8_t>& serializedBlock);
+    // returns the block hash (blockID = blockHash)
+    static std::array<std::uint8_t, 32> getBlockId(std::vector<std::uint8_t>& serializedBlock);
     void printBlock() const;
-    void setBlockID();
 
     private:
     BlockHeader m_header;

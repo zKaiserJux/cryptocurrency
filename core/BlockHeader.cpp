@@ -77,11 +77,8 @@ BlockHeader BlockHeader::deserialize(std::vector<std::uint8_t>& serializedBlockH
 
 // create SHA256 of serialized block header
 std::optional<Hash256> BlockHeader::hashBlockHeader() const {
-    Hash256 hashed{};
-    if (std::vector<std::uint8_t> unhashed = serialize(); !computeHash(unhashed, hashed)) {
-        return std::nullopt;
-    }
-    return hashed;
+    std::vector<std::uint8_t> serializedBlockHeader = serialize();
+    return computeHash(serializedBlockHeader);
 }
 
 // function to set the merkle root after it has been calculated inside the block class

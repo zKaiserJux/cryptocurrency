@@ -61,11 +61,48 @@ void Block::updateMerkleRoot(const std::array<std::uint8_t, 32> &merkleRoot) {
     m_header.setMerkleRoot(merkleRoot);
 }
 
-// calculates the block hash of the current block
-const std::array<std::uint8_t, 32> Block::calculateBlockHash(std::vector<std::uint8_t>& serializedBlock) {
-    std::array<std::uint8_t, 32> blockHash{};
-    if (!computeHash(serializedBlock, blockHash)) {
-        throw std::runtime_error("unexpected block hash");
+// function to calculate the merkle root of the block
+std::array<std::uint8_t, 32> Block::calculateMerkleRoot() const {
+    std::vector<std::array<std::uint8_t, 32>> hashedTransactions{};
+    hashedTransactions.reserve(m_transactions.size());
+
+    /* TODO: handle empty transaction blocks */
+    if (m_transactions.empty()) {
+        throw std::runtime_error("m_transactions is empty");
     }
+
+    for (const auto& tx : m_transactions) {
+        const std::vector<std::uint8_t> serializedTx = tx.serialize();
+        std::array<std::uint8_t, 32> hashedTx = computeHash(serializedTx);
+        hashedTransactions.push_back(hashedTx);
+    }
+    // we now have all the hashed transactions inside hashedTransactions
+    // algorithm terminates when there is only the merkle root hash inside hashedTransactions
+    while (hashedTransactions.size() > 1) {
+        std::vector<std::array<std::uint8_t, 32>> temp{};
+        temp.reserve(hashedTransactions.size() / 2);
+        // if the size of transactions at any stage of the tree is odd, we just duplicate the last element
+        if (hashedTransactions.size() % 2 != 0) {
+            hashedTransactions.push_back(hashedTransactions.back());
+        }
+        for (int i = 0; i < hashedTransactions.size(); i += 2) {
+            std::array<std::uint8_t, 64> concatTx{};
+            std::ranges::copy(hashedTransactions[i], concatTx.begin());
+            std::ranges::copy(hashedTransactions[i + 1], concatTx.begin() + 32);
+            temp.push_back(computeHash(concatTx));
+        }
+        hashedTransactions = temp;
+    }
+    return hashedTransactions[0];
+}
+
+// calculates the block hash of the current block
+std::array<std::uint8_t, 32> Block::calculateBlockHash(std::vector<std::uint8_t>& serializedBlock) {
+    return computeHash(serializedBlock);
+}
+
+// returns the block hash (blockID and blockHash are synonyms)
+std::array<std::uint8_t, 32> Block::getBlockId(std::vector<std::uint8_t>& serializedBlock) {
+    const std::array<std::uint8_t, 32> blockHash = calculateBlockHash(serializedBlock);
     return blockHash;
 }

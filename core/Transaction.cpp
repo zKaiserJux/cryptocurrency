@@ -165,11 +165,8 @@ CTransaction CTransaction::deserialize(const std::vector<uint8_t> &serializedTx)
 
 // returns the double SHA256 transaction
 uint256 CTransaction::hashTransaction(const std::vector<std::uint8_t>& serializedTx) {
-    uint256 doubleHashedTx;
-    if (!computeDoubleHash(serializedTx, doubleHashedTx)) {
-        throw std::runtime_error("computeDoubleHash() failed");
-    }
-    return doubleHashedTx;
+    const uint256 doubleHashed = computeDoubleHash(serializedTx);
+    return doubleHashed;
 }
 
 // print out deserialized transaction
