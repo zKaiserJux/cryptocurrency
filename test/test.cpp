@@ -100,3 +100,13 @@ bool testTxSerialization() {
     PrintHex("Tx Hash: ", serializedTx);
     return true;
 }
+
+bool testTxDeserialization() {
+    const std::vector<std::uint8_t> serializedTx = testTx.serialize();
+    if (serializedTx.empty()) {
+        return false;
+    }
+    const CTransaction tx = CTransaction::deserialize(serializedTx);
+    tx.printTransaction();
+    return true;
+}

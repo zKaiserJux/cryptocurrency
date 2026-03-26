@@ -10,7 +10,10 @@ template <typename T> void addElement(T& t, std::vector<std::uint8_t>& out) {
     // function only works with integral datatypes
     static_assert(std::is_integral_v<T>, "Datatype must be integral");
     const std::size_t size = sizeof(T);
-    for (std::int32_t i = size - 1; i >= 0; --i) {
+    /*for (std::int32_t i = size - 1; i >= 0; --i) {
+        out.push_back(static_cast<std::uint8_t>(t >> (i * 8)) & 0xFF);
+    } */
+    for (std::int32_t i = 0; i < size; i++) {
         out.push_back(static_cast<std::uint8_t>(t >> (i * 8)) & 0xFF);
     }
 };
@@ -49,7 +52,7 @@ TxInput TxInput::deserialize(const std::vector<std::uint8_t>& serializedInput, s
     std::memcpy(&txInput.previousTxHash, serializedInput.data() + offset, txInput.previousTxHash.size());
     offset += txInput.previousTxHash.size();
     txInput.outputIndex = deserializeField<std::uint32_t>(serializedInput, offset);
-    const auto size = deserializeField<std::size_t>(serializedInput, offset);
+    const auto size = deserializeField<std::uint32_t>(serializedInput, offset);
     txInput.unlockingData = std::vector<std::uint8_t>(serializedInput.data() + offset, serializedInput.data() + offset + size);
     offset += size;
     return txInput;
@@ -82,6 +85,7 @@ TxOutput TxOutput::deserialize(const std::vector<std::uint8_t>& serializedOutput
     txOutput.amount = deserializeField<std::uint64_t>(serializedOutput, offset);
     const auto size = deserializeField<std::uint32_t>(serializedOutput, offset);
     txOutput.unlockingData = std::vector<std::uint8_t>(serializedOutput.data() + offset, serializedOutput.data() + offset + size);
+    offset += size;
     return txOutput;
 }
 
@@ -127,17 +131,21 @@ const std::vector<std::uint8_t> CTransaction::serialize() const {
     }
 
     /* as we do not know the size of the total transaction to the very end
-     * we need to add it after we serialized alle the input and output transactions
+     * we need to add it after we serialized all of the input and output transactions
      * and put it in front of the serialized byte stream for the transaction
      * in order to achieve that, we create a new bytestream and reserve the total size of the transaction
      */
     std::vector<std::uint8_t> outputSerializedTx;
     outputSerializedTx.reserve(sizeof(std::uint32_t) + serializedTx.size());
     const auto sizeTx = static_cast<std::uint32_t>(serializedTx.size());
-
-    for (std::int32_t i = sizeof(sizeTx) - 1; i >= 0; --i) {
+    // add sizeTx as the first field of final serialized bytestream
+    /* for (std::int32_t i = sizeof(sizeTx) - 1; i >= 0; --i) {
+        outputSerializedTx.push_back(static_cast<std::uint8_t>(sizeTx >> (i * 8)) & 0xFF);
+    } */
+    for (std::int32_t i = 0; i < sizeof(sizeTx); i++) {
         outputSerializedTx.push_back(static_cast<std::uint8_t>(sizeTx >> (i * 8)) & 0xFF);
     }
+    // append serializedTx to the sizeTx field of the final serialized bytestream
     outputSerializedTx.insert(outputSerializedTx.end(), serializedTx.begin(), serializedTx.end());
     return outputSerializedTx;
 }
@@ -145,6 +153,7 @@ const std::vector<std::uint8_t> CTransaction::serialize() const {
 // function to deserialize a transaction
 CTransaction CTransaction::deserialize(const std::vector<uint8_t> &serializedTx) {
     std::size_t offset = 0;
+    const auto txSize = deserializeField<std::uint32_t>(serializedTx, offset);
     const auto version = deserializeField<std::uint32_t>(serializedTx, offset);
     const auto nLockTime = deserializeField<std::uint32_t>(serializedTx, offset);
     const auto inputCount = deserializeField<std::uint32_t>(serializedTx, offset);

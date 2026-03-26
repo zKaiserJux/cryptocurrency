@@ -19,6 +19,7 @@ int main() {
     // testKeyPair();
     // checkNativeEndianness();
     // testPrintTransaction();
-    testTxSerialization();
+    // testTxSerialization();
+    testTxDeserialization();
     return 0;
 }
