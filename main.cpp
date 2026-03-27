@@ -20,6 +20,7 @@ int main() {
     // checkNativeEndianness();
     // testPrintTransaction();
     // testTxSerialization();
-    testTxDeserialization();
+    // testTxDeserialization();
+    testTxHashing();
     return 0;
 }

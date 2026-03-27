@@ -101,12 +101,33 @@ bool testTxSerialization() {
     return true;
 }
 
+// test transaction deserialization
 bool testTxDeserialization() {
-    const std::vector<std::uint8_t> serializedTx = testTx.serialize();
-    if (serializedTx.empty()) {
+    try {
+        const std::vector<std::uint8_t> serializedTx = testTx.serialize();
+        if (serializedTx.empty()) {
+            return false;
+        }
+        const CTransaction tx = CTransaction::deserialize(serializedTx);
+        tx.printTransaction();
+        return true;
+    }
+    catch (std::exception& e) {
+        std::cout << e.what() << std::endl;
         return false;
     }
-    const CTransaction tx = CTransaction::deserialize(serializedTx);
-    tx.printTransaction();
-    return true;
+}
+
+// test transaction hashing
+bool testTxHashing() {
+    try {
+        const std::vector<std::uint8_t> serializedTx = testTx.serialize();
+        const std::array<std::uint8_t, 32> hashed = CTransaction::hashTransaction(serializedTx);
+        PrintHex("TxHash: ", hashed);
+        return true;
+    }
+    catch (std::exception& e) {
+        std::cout << e.what() << std::endl;
+        return false;
+    }
 }
